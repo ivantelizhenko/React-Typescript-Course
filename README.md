@@ -1,9 +1,1 @@
-- ComponentPropsWithoutRef (every)
-- forwardRef (Form.tsx, Input.tsx)
-- Polymorphic component (Container.tsx)
-- useImperativeHandle (Form.tsx)
-- FormEvent (Form.tsx)
-- Wrapper component (Form.tsx)
-- A lot reusable with ElementType (Container.tsx)
-- Reusable with Discriminated unions (Button.tsx)
-- etc.
+- Context API (timersContextTypes.ts)
