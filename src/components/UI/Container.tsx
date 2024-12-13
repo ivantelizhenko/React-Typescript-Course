@@ -9,11 +9,15 @@ type ContainerProps<T extends ElementType> = {
   children: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-export default function ContainerCourseExample<C extends ElementType>({
+export default function Container<C extends ElementType>({
   as,
   children,
   ...props
 }: ContainerProps<C>) {
   const Component = as || 'div';
-  return <Component {...props}>{children}</Component>;
+  return (
+    <Component {...props}>
+      {children}
+    </Component>
+  );
 }
