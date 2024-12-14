@@ -7,7 +7,7 @@ export default function Timers() {
   return (
     <ul>
       {timers.map(timer => (
-        <li key={timer.name}>
+        <li key={timer.id}>
           <Timer {...timer} />
         </li>
       ))}

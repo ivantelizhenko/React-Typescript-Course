@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export type Timer = {
   name: string;
   duration: number;
+  id: number;
 };
 
 export type TimersState = {
@@ -12,6 +13,7 @@ export type TimersState = {
 
 export type TimerContextValue = TimersState & {
   addTimer: (timerData: Timer) => void;
+  removeTimer: (id: number) => void;
   startTimers: () => void;
   stopTimers: () => void;
 };
@@ -33,4 +35,13 @@ type AddTimerAction = {
   payload: Timer;
 };
 
-export type Action = StartTimersAction | StopTimersAction | AddTimerAction;
+type RemoveTimerAction = {
+  type: 'REMOVE_TIMER';
+  payload: number;
+};
+
+export type Action =
+  | StartTimersAction
+  | StopTimersAction
+  | AddTimerAction
+  | RemoveTimerAction;

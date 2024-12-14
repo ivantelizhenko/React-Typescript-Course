@@ -11,7 +11,13 @@ export default function AddTimer() {
 
   function handleSaveTimer(data: unknown) {
     const extractedData = data as { name: string; duration: string };
-    addTimer({ name: extractedData.name, duration: +extractedData.duration });
+    if (!extractedData.name || !extractedData.duration) return;
+
+    addTimer({
+      name: extractedData.name,
+      duration: +extractedData.duration,
+      id: Math.random(),
+    });
     form.current?.clear();
   }
 

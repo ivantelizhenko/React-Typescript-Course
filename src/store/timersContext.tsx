@@ -16,7 +16,16 @@ const initialState: TimersState = {
 function timersReducer(state: TimersState, action: Action): TimersState {
   switch (action.type) {
     case 'ADD_TIMER': {
-      return { ...state, timers: [...state.timers, action.payload] };
+      return {
+        ...state,
+        timers: [...state.timers, action.payload],
+      };
+    }
+    case 'REMOVE_TIMER': {
+      return {
+        ...state,
+        timers: state.timers.filter(t => t.id !== action.payload),
+      };
     }
     case 'START_TIMERS': {
       return { ...state, isRunning: true };
@@ -36,6 +45,9 @@ function TimersProvider({ children }: TimerContextProviderProps) {
     ...timersState,
     addTimer(timerData) {
       dispatch({ type: 'ADD_TIMER', payload: timerData });
+    },
+    removeTimer(id) {
+      dispatch({ type: 'REMOVE_TIMER', payload: id });
     },
     startTimers() {
       dispatch({ type: 'START_TIMERS' });
